@@ -1,7 +1,7 @@
 # Next Shop
 
 [![en](https://img.shields.io/badge/lang-en--us-blue.svg)](https://github.com/ikaro-souza/next-shop/blob/main/README.md)
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/ikaro-souza/next-shop/blob/main/README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/ikaro-souza/next-shop/blob/main/README-BR.md)
 
 Esse projeto foi construído com [`create-t3-app`](https://create.t3.gg/).
 Um t3-app é apenas um app NextJS configurado para ser mais typesafe já vem integrado com:
