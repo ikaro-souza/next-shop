@@ -2,7 +2,6 @@ import clsx from "clsx";
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { Header } from "~/components/Header";
 import { PageDescription } from "~/components/PageDescription";
 import { PageTitle } from "~/components/PageTitle";
@@ -14,7 +13,6 @@ import { formatCurrency } from "~/utils";
 const Page: NextPage = () => {
     const { shoppingBag, isLoading } = useShoppingBag();
     const clearShoppingBag = useClearShoppingBag();
-    const router = useRouter();
 
     if (isLoading) return <PageHead />;
 
@@ -28,7 +26,12 @@ const Page: NextPage = () => {
             <PageHead />
             <main className="px-4 pb-20 sm:px-14 md:px-20 lg:px-32 2xl:mx-auto 2xl:max-w-screen-2xl">
                 <Header />
-                <PageTitle className="lg:mt-16">
+                <PageTitle
+                    className={clsx(
+                        "lg:mt-16",
+                        !shoppingBag.length && "text-center"
+                    )}
+                >
                     Sua sacola{" "}
                     {shoppingBag.length
                         ? `de ${formatCurrency(shoppingBag.totalValue)}`
@@ -42,7 +45,7 @@ const Page: NextPage = () => {
                     ) : (
                         <Link
                             href="/"
-                            className="mx-auto flex h-12 items-center justify-center bg-black px-4 text-center font-medium text-white"
+                            className="mx-auto flex h-12 items-center justify-center bg-black px-4 text-center font-medium text-white md:w-96"
                         >
                             Dá uma olhada nas nossas ofertas.
                         </Link>
@@ -58,7 +61,10 @@ const Page: NextPage = () => {
                         <span className="mb-3 text-right text-2xl font-medium tracking-[4%] md:mb-0 md:mt-0">
                             Total: {formatCurrency(shoppingBag.totalValue)}
                         </span>
-                        <button className="flex h-12 w-80 items-center justify-center bg-black text-lg font-medium text-white">
+                        <button
+                            className="flex h-12 w-80 items-center justify-center bg-black text-lg font-medium text-white"
+                            onClick={onBuyClick}
+                        >
                             Comprar
                         </button>
                     </footer>

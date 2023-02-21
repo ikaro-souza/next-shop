@@ -96,7 +96,8 @@ export const useRemoveItemFromShoppingBag = () => {
 };
 
 export const useClearShoppingBag = () => {
-    const [shoppingBag, setShoppingBag] = useAtom(shoppingBagAtom);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, setShoppingBag] = useAtom(shoppingBagAtom);
     return () => {
         setShoppingBag([]);
     };
