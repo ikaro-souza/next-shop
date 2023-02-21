@@ -10,14 +10,14 @@ import { ProductCard } from "~/components/ProductCard";
 import { queryKeys, useProducts } from "~/lib/queries";
 
 const Home: NextPage = () => {
-    const products = useProducts();
+    const { products } = useProducts();
     if (!products) return <PageHead />;
 
     return (
         <>
             <PageHead />
-            <Header />
             <main className="px-4 pb-20 sm:px-14 md:px-20 lg:px-32 2xl:mx-auto 2xl:max-w-screen-2xl">
+                <Header />
                 <PageTitle>Nossos produtos</PageTitle>
                 <PageDescription>
                     Seleção dos melhores produtos de tecnologia com os
