@@ -6,10 +6,10 @@ export const queryKeys = {
 };
 
 export const useProducts = () => {
-    const { data: products } = useQuery({
+    const { data: products, isLoading } = useQuery({
         queryKey: ["products"],
         queryFn: getProducts,
     });
 
-    return products;
+    return { products, isLoading };
 };

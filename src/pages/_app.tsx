@@ -9,7 +9,9 @@ import {
 import { Provider } from "jotai";
 import { type AppType } from "next/dist/shared/lib/utils";
 import React from "react";
+import { ToastContainer } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
 import "~/styles/globals.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
@@ -21,6 +23,16 @@ const MyApp: AppType = ({ Component, pageProps }) => {
             <Hydrate state={(pageProps as any).dehydratedState}>
                 <Provider>
                     <Component {...pageProps} />
+                    <ToastContainer
+                        position="top-center"
+                        autoClose={3000}
+                        hideProgressBar
+                        closeOnClick
+                        pauseOnFocusLoss={false}
+                        draggable
+                        pauseOnHover={false}
+                        theme="light"
+                    />
                 </Provider>
             </Hydrate>
         </QueryClientProvider>
