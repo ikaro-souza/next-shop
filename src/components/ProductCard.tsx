@@ -5,6 +5,7 @@ import React from "react";
 import type { Product } from "~/api/schemas";
 import { useAddToShoppingBag } from "~/lib/atoms";
 import { formatCurrency } from "~/utils";
+import { Button } from "./Button";
 
 export const ProductCard: React.FC<{
     product: Product;
@@ -37,13 +38,16 @@ export const ProductCard: React.FC<{
                 <p className="mt-1 font-highlight text-2xl font-medium lg:mt-2">
                     {formatCurrency(product.unitaryValue)}
                 </p>
-                <button
-                    className="mt-3 flex h-9 w-fit items-center justify-center gap-x-2 justify-self-end border border-black pl-4 pr-3 text-sm font-medium"
+                <Button
+                    className="mt-3 w-fit justify-self-end"
+                    rightIcon={
+                        <IconShoppingBag className="aspect-square h-[18px]" />
+                    }
                     onClick={onAddToBagClick}
+                    height="small"
                 >
                     Adicionar à sacola
-                    <IconShoppingBag className="aspect-square h-[18px]" />
-                </button>
+                </Button>
             </section>
         </article>
     );

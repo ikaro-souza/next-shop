@@ -8,6 +8,7 @@ import {
     type ShoppingBagProduct,
 } from "~/lib/atoms";
 import { formatCurrency } from "~/utils";
+import { Button } from "./Button";
 
 export const ShoppingBagProductCard: React.FC<{
     product: ShoppingBagProduct;
@@ -97,16 +98,19 @@ export const ShoppingBagProductCard: React.FC<{
                         />
                     </div>
                 </div>
-                <button
-                    className="mt-3 flex h-9 w-fit items-center justify-center gap-x-2 self-end justify-self-end border border-black pl-4 pr-3 text-sm font-medium sm:mb-2 sm:mt-auto md:mt-8"
+                <Button
+                    className="mt-3 w-fit self-end justify-self-end sm:mb-2 sm:mt-auto md:mt-8"
+                    height="small"
+                    rightIcon={
+                        <IconX
+                            className="aspect-square h-[18px]"
+                            aria-label="Remover produto da sacola"
+                        />
+                    }
                     onClick={onRemoveClick}
                 >
                     Remover
-                    <IconX
-                        className="aspect-square h-[18px]"
-                        aria-label="Remover produto da sacola"
-                    />
-                </button>
+                </Button>
             </section>
         </article>
     );

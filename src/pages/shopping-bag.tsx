@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { Button } from "~/components/Button";
 import { Header } from "~/components/Header";
 import { PageDescription } from "~/components/PageDescription";
 import { PageTitle } from "~/components/PageTitle";
@@ -61,12 +62,14 @@ const Page: NextPage = () => {
                         <span className="mb-3 text-center text-2xl font-medium tracking-[4%] md:mb-0 md:mt-0">
                             Total: {formatCurrency(shoppingBag.totalValue)}
                         </span>
-                        <button
-                            className="flex h-12 items-center justify-center bg-black text-lg font-medium text-white md:w-80"
+                        <Button
+                            className="md:w-80"
+                            height="large"
+                            variant="filled"
                             onClick={onBuyClick}
                         >
                             Comprar
-                        </button>
+                        </Button>
                     </footer>
                 )}
             </main>
