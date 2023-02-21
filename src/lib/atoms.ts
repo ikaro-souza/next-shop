@@ -55,16 +55,23 @@ export const useShoppingBag = () => {
 export const useAddToShoppingBag = () => {
     const [shoppingBag, setShoppingBag] = useAtom(shoppingBagAtom);
     return (productId: string) => {
-        const productAlreadyInBag = shoppingBag.some(
+        const productAlreadyInBag = shoppingBag.find(
             (x) => x.productId === productId
         );
 
         if (productAlreadyInBag) {
-            return;
+            updateItemInShoppingBag(
+                { productId, quantity: productAlreadyInBag.quantity + 1 },
+                shoppingBag,
+                setShoppingBag
+            );
+        } else {
+            addItemToShoppingBag(
+                { productId, quantity: 1 },
+                shoppingBag,
+                setShoppingBag
+            );
         }
-
-        const items = [...shoppingBag, { productId, quantity: 1 }];
-        setShoppingBag(items);
 
         notify("Item adicionado à sua sacola");
     };
@@ -78,9 +85,7 @@ export const useUpdateProductQuantity = () => {
             return;
         }
 
-        setShoppingBag(
-            shoppingBag.map((x) => (x.productId === item.productId ? item : x))
-        );
+        updateItemInShoppingBag(item, shoppingBag, setShoppingBag);
     };
 };
 
@@ -102,3 +107,22 @@ export const useClearShoppingBag = () => {
         setShoppingBag([]);
     };
 };
+
+function addItemToShoppingBag(
+    item: ShoppingBagItem,
+    shoppingBag: ShoppingBagItem[],
+    setShoppingBag: (_: ShoppingBagItem[]) => void
+) {
+    const items = [...shoppingBag, item];
+    setShoppingBag(items);
+}
+
+function updateItemInShoppingBag(
+    item: ShoppingBagItem,
+    shoppingBag: ShoppingBagItem[],
+    setShoppingBag: (_: ShoppingBagItem[]) => void
+) {
+    setShoppingBag(
+        shoppingBag.map((x) => (x.productId === item.productId ? item : x))
+    );
+}

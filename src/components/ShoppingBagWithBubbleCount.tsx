@@ -4,7 +4,10 @@ import React from "react";
 import { useShoppingBag } from "~/lib/atoms";
 
 export const ShoppingBagWithBubbleCount: React.FC = () => {
-    const itemsInShoppingBag = useShoppingBag().shoppingBag.products.length;
+    const itemsInShoppingBag = useShoppingBag().shoppingBag.products.reduce(
+        (total, current) => total + current.quantity,
+        0
+    );
 
     return (
         <Link href="/shopping-bag">
