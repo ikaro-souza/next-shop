@@ -16,7 +16,7 @@ const Home: NextPage = () => {
     return (
         <>
             <PageHead />
-            <main className="px-4 pb-20 sm:px-14 md:px-20 lg:px-32 2xl:mx-auto 2xl:max-w-screen-2xl">
+            <main className="px-4 pb-20 sm:px-14 md:px-20 lg:px-28 2xl:mx-auto 2xl:max-w-screen-2xl">
                 <Header />
                 <PageTitle>Nossos produtos</PageTitle>
                 <PageDescription>

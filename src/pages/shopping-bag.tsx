@@ -24,7 +24,7 @@ const Page: NextPage = () => {
     return (
         <>
             <PageHead />
-            <main className="px-4 pb-20 sm:px-14 md:px-20 lg:px-32 2xl:mx-auto 2xl:max-w-screen-2xl">
+            <main className="px-4 pb-20 sm:px-14 md:px-20 lg:px-28 2xl:mx-auto 2xl:max-w-screen-2xl">
                 <Header />
                 <PageTitle
                     className={clsx(
@@ -51,18 +51,18 @@ const Page: NextPage = () => {
                         </Link>
                     )}
                 </PageDescription>
-                <section className="mt-12 flex flex-col gap-y-6 sm:mx-auto sm:gap-y-8 lg:mt-20 lg:px-48">
+                <section className="mt-12 flex flex-col gap-y-6 sm:mx-auto sm:gap-y-8 lg:mt-20 xl:px-48">
                     {shoppingBag.products.map((p) => (
                         <ShoppingBagProductCard product={p} key={p.sys.id} />
                     ))}
                 </section>
                 {!!shoppingBag.length && (
-                    <footer className="mb-6 mt-14 flex w-full flex-col gap-x-9 md:flex-row md:items-center md:justify-end lg:mt-20 lg:px-48">
-                        <span className="mb-3 text-right text-2xl font-medium tracking-[4%] md:mb-0 md:mt-0">
+                    <footer className="mb-6 mt-14 flex w-full flex-col gap-x-9 md:flex-row md:items-center md:justify-end lg:mt-20 xl:px-48">
+                        <span className="mb-3 text-center text-2xl font-medium tracking-[4%] md:mb-0 md:mt-0">
                             Total: {formatCurrency(shoppingBag.totalValue)}
                         </span>
                         <button
-                            className="flex h-12 w-80 items-center justify-center bg-black text-lg font-medium text-white"
+                            className="flex h-12 items-center justify-center bg-black text-lg font-medium text-white md:w-80"
                             onClick={onBuyClick}
                         >
                             Comprar
