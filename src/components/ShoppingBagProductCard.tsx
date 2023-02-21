@@ -29,12 +29,11 @@ export const ShoppingBagProductCard: React.FC<{
 
     const onQuantityInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (!cardRef.current) return;
+        const productId = cardRef.current.getAttribute("data-product-id")!;
 
         const quantity = Number(e.target.value);
-        if (quantity === 0 || quantity === 100) return;
-
         updateProductQuantity({
-            productId: cardRef.current.getAttribute("data-product-id")!,
+            productId,
             quantity,
         });
     };

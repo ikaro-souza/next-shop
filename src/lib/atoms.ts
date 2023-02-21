@@ -77,12 +77,20 @@ export const useAddToShoppingBag = () => {
     };
 };
 
+const MAX_QUANTITY = 10;
+const MIN_QUANTITY = 1;
 export const useUpdateProductQuantity = () => {
     const [shoppingBag, setShoppingBag] = useAtom(shoppingBagAtom);
 
     return (item: ShoppingBagItem) => {
         if (!shoppingBag.some((x) => x.productId === item.productId)) {
             return;
+        }
+
+        if (item.quantity < MIN_QUANTITY) {
+            item.quantity = MIN_QUANTITY;
+        } else if (item.quantity > MAX_QUANTITY) {
+            item.quantity = MAX_QUANTITY;
         }
 
         updateItemInShoppingBag(item, shoppingBag, setShoppingBag);
