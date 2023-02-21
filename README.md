@@ -1,28 +1,42 @@
-# Create T3 App
+# Next Shop
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+[![en](https://img.shields.io/badge/lang-en--us-blue.svg)](https://github.com/ikaro-souza/next-shop/blob/main/README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/ikaro-souza/next-shop/blob/main/README.md)
 
-## What's next? How do I make an app with this?
+This project was bootstrapped with [`create-t3-app`](https://create.t3.gg/).
+A t3-app is just a NextJS application setup to be more typesafe and already comes integrated with:
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+-   [Next.js](https://nextjs.org)
+-   [NextAuth.js](https://next-auth.js.org)
+-   [Prisma](https://prisma.io)
+-   [Tailwind CSS](https://tailwindcss.com)
+-   [tRPC](https://trpc.io)
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+Although I've only used Tailwind CSS.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## The things I used
 
-## Learn More
+-   [Contentful Headless CMS](https://www.contentful.com/): I didn't want to implement my own backend and given that the project is an e-commerce website, a headless CMS was the perfect choice. It also provides a GraphQL API that simplifies the querying of data when compared to its own REST alternative.
+-   [Tanstack Query](https://tanstack.com/query/latest): The best state management library there is for React. I used it to prefetch data in SSR mode but honestly I didn't need to, I could simply hit the endpoint I created that uses GraphQL to fetch the data from the CMS, but it's my default state management solution so I slipped it into this project as well.
+-   [Tailwind CSS](https://tailwindcss.com/): Awesome tool for making beautiful UI blazingly fast and still owning your design system.
+-   [Jotai](https://jotai.org/): Another excelent state management library, but this one I chose specifically to handle the shopping bag data, since I wasn't planning to store it in the backend I chose to use localStore and Jotai has a built-in method for it.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## Running the application
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+To run the application you just have to install the dependencies with your preferred package manager (I chose `pnpm`):
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+`npm install`
 
-## How do I deploy this?
+`pnpm install`
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+`yarn`
+
+And then run the `dev` script:
+
+`npm run dev`
+
+`pnpm run dev`
+
+`yarn dev`
+
+I also deployed this application on Vercel, you can check it [here](https://next-shop-ikaro-souza.vercel.app/).
